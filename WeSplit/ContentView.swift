@@ -37,9 +37,9 @@ struct ContentView: View {
         NavigationView {
             Form {
                 Section {
-                        TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                            .keyboardType(.decimalPad)
-                            .focused($amountIsFocused)
+                    TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .keyboardType(.decimalPad)
+                        .focused($amountIsFocused)
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(2 ..< 100, id: \.self) {
                             Text("\($0) people")
