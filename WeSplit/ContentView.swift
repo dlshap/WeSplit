@@ -37,17 +37,16 @@ struct ContentView: View {
         NavigationView {
             Form {
                 Section {
-                    HStack {
-                        Text("Check amount")
                         TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                             .keyboardType(.decimalPad)
                             .focused($amountIsFocused)
-                    }
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(2 ..< 100, id: \.self) {
                             Text("\($0) people")
                         }
                     }
+                } header: {
+                    Text("The bill")
                 }
                 Section {
                     Picker("Tip percentage", selection: $tipPercentage) {
